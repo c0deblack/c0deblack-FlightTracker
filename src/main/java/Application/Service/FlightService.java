@@ -73,7 +73,9 @@ public class FlightService {
         flight.setFlight_id(flight_id);
         int result = flightDAO.updateFlight(flight_id, flight);
         //return result > 0 ? flight : null;
-        return null;
+        Flight f = flightDAO.getFlightById(flight_id);
+        if(f == null) return null;
+        return flight;
     }
 
     /**
